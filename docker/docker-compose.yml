@@ -1,0 +1,25 @@
+version: '3'
+services:
+  database:
+    build: mysql
+    ports:
+      - "33060:3306"
+    environment:
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=secret
+  web:
+    build: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ../backend:/var/www
+    links:
+      - php
+    depends_on:
+      - php
+  php:
+    build: php
+    volumes:
+      - ../backend:/var/www
+    expose:
+      - "9000"
