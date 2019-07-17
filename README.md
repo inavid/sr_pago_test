@@ -42,11 +42,13 @@ Go to backend folder and exec:
 
 ```bash
 composer install
+
 ```
 
 This command is gonna build the mysql database structure needed and read the postal codes txt file to feed sepomex table, this seed is gonna take kind of 5 minutes to finish because the file is too large, dont worry this is gonna be only the first time you install the project
 
 ```bash
+./artisan.sh key:generate
 ./artisan.sh migrate:fresh --seed
 ```
 
@@ -60,7 +62,7 @@ nvm install && nvm use
 
 in case that you dont want to use nvm, the version of npm used with this project is 10.0.0 so you need it to use the frontend 
 
-after that cd into frontend_sr_pago_test and exec:
+after that exec:
 
 ```bash
 npm install && npm start 
